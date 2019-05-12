@@ -44,7 +44,7 @@ used_mb=$(( $ram_used / 1024 ))
 
 ### Panel 
 echo -e " $user_name@$user_hostname\n"
-echo -e " Operating System: $distro\n Architecture Type: $arch\n Kernel: $kernel\n CPU: $cpu\n RAM: $used_mb MB / $total_mb MB "  
+echo -e " Λειτουργικό Σύστημα: $distro\n Αρχιτεκτονική: $arch\n Πυρήνας: $kernel\n Επεξεργαστής: $cpu\n Μνήμη RAM: $used_mb MB / $total_mb MB "  
 
 
 
