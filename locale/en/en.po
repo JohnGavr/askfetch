@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: askfetch\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 18:09+0300\n"
+"PO-Revision-Date: 2019-07-10 18:13+0300\n"
+"Last-Translator: \n"
+"Language-Team: Linux-user.gr <linux-user.gr>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: askfetch.sh:67
+msgid "Error: Unrecognized locale"
+msgstr "Error: Unrecognized locale"
+
+#: askfetch.sh:139
+#, sh-format
+msgid "Operating system: $distro"
+msgstr "Operating system: $distro"
+
+#: askfetch.sh:140
+#, sh-format
+msgid "Architecture: $arch"
+msgstr "Architecture: $arch"
+
+#: askfetch.sh:141
+#, sh-format
+msgid "Kernel: $kernel"
+msgstr "Kernel: $kernel"
+
+#: askfetch.sh:142
+#, sh-format
+msgid "CPU: $cpu"
+msgstr "CPU: $cpu"
+
+#: askfetch.sh:146
+#, sh-format
+msgid "RAM: $ram_info_value"
+msgstr "RAM: $ram_info_value"
