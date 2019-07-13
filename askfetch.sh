@@ -1,54 +1,7 @@
 #!/bin/bash
-
 export TEXTDOMAIN=askfetch
 export TEXTDOMAINDIR=$PWD/locale
-
 . gettext.sh
-
-# Function definitions
-getColor () {
-	local tmp_color=""
-	if [[ -n "$1" ]]; then
-		if [[ ${BASH_VERSINFO[0]} -ge 4 ]]; then
-			if [[ ${BASH_VERSINFO[0]} -eq 4 && ${BASH_VERSINFO[1]} -gt 1 ]] || [[ ${BASH_VERSINFO[0]} -gt 4 ]]; then
-				tmp_color=${1,,}
-			else
-				tmp_color="$(tr '[:upper:]' '[:lower:]' <<< "${1}")"
-			fi
-		else
-			tmp_color="$(tr '[:upper:]' '[:lower:]' <<< "${1}")"
-		fi
-		case "${tmp_color}" in
-			# Standards
-			'black')					color_ret='\033[0m\033[30m';;
-			'red')						color_ret='\033[0m\033[31m';;
-			'green')					color_ret='\033[0m\033[32m';;
-			'brown')					color_ret='\033[0m\033[33m';;
-			'blue')						color_ret='\033[0m\033[34m';;
-			'purple')					color_ret='\033[0m\033[35m';;
-			'cyan')						color_ret='\033[0m\033[36m';;
-			'yellow')					color_ret='\033[0m\033[1;33m';;
-			'white')					color_ret='\033[0m\033[1;37m';;
-			# Bolds
-			'dark grey'|'dark gray')	color_ret='\033[0m\033[1;30m';;
-			'light red')				color_ret='\033[0m\033[1;31m';;
-			# Manjaro
-			'light green')				color_ret='\033[0m\033[1;32m';;
-			'light blue')				color_ret='\033[0m\033[1;34m';;
-			'light purple')				color_ret='\033[0m\033[1;35m';;
-			'light cyan')				color_ret='\033[0m\033[1;36m';;
-			'light grey'|'light gray')	color_ret='\033[0m\033[37m';;
-			# Some 256 colors
-			'orange')					color_ret="$(colorize '202')";; #DarkOrange
-			'light orange') 			color_ret="$(colorize '214')";; #Orange1
-			# HaikuOS
-			'black_haiku') 				color_ret="$(colorize '7')";;
-			#ROSA color
-			'rosa_blue') 				color_ret='\033[01;38;05;25m';;
-		esac
-		[[ -n "${color_ret}" ]] && echo "${color_ret}"
-	fi
-}
 
 # Flag and Argument parsing
 # check flags
@@ -101,7 +54,7 @@ number_free=${ram_free::len-3}
 ram_buffer=$( cat /proc/meminfo | grep Buffers | cut -d ':' -f2 | sed -e 's/^[ \t]*//') 
 number_buffer=${ram_buffer::len-3}
 
-###Cached Memory
+##Cached Memory
 ram_cached=$( cat /proc/meminfo | grep Cached: | head -n1 | cut -d ':' -f2 | sed -e 's/^[ \t]*//'  )
 number_cached=${ram_cached::len-3}
 
@@ -110,39 +63,51 @@ ram_used=$(( ( $number_total - $number_free ) - ( $number_buffer + $number_cache
 used_mb=$(( $ram_used / 1024 ))
 
 
-## Add distribution logo
-
-### Define tabs for better printing
-tabs 1
-
-c0=$'\033[0m' # Reset Text
-
-
-#Get proper logo for distro
-
-logo_file_color=$(cat $PWD/logos/$distro_id.txt | grep "color: " | cut -d ':' -f2 | tr -d '\n' | tr -d '\r' | sed -e 's/^[[:space:]]*//') #remove trailing and leading chars
-
-c1=$(getColor "${logo_file_color}")
-
-#c1=$(getColor 'light green') # Green
-logo_color=$(printf "$c1") # generate escape character for color https://unix.stackexchange.com/a/45954 
-logo=$(cat $PWD/logos/$distro_id.txt | awk 'BEGIN{ found=0} {if (found) print } /logo\:/{found=1} ' |  sed "s/\$/$c0/ ; s/^/$logo_color/")
-
-#Add reset text string c0 before every newline
-
-#Build system info with i18n
-
+#Build system info with i18n (eval_gettext because evaluated expressions inside strings are used)
 operating_system=$(eval_gettext "Operating system: \$distro")
 architecture=$(eval_gettext "Architecture: \$arch")
 kernel_ver=$(eval_gettext "Kernel: \$kernel")
 cpu_model=$(eval_gettext "CPU: \$cpu")
 
 ram_info_value="$used_mb MB / $total_mb MB"
-
 ram_info=$(eval_gettext "RAM: \$ram_info_value")
 
+## Add distribution logo
+
+### Define tabs for better printing
+tabs 1
+
+
+
+c0=$'\033[0m' # Reset Text
+
+#Get proper logo for distro
+logo_file_color=$(cat $PWD/logos/$distro_id.txt | grep "label_color: " | cut -d ':' -f2 | tr -d '\n' | tr -d '\r' | sed -e 's/^[[:space:]]*//') #remove trailing and leading chars
+
+c1=$logo_file_color
 systeminfo="\n${c1}${user_name}@${user_hostname}$c0\n$operating_system\n$architecture\n$kernel_ver\n$cpu_model\n$ram_info"
 
-#pr   -i1 -m -J -o1 -t -S"   " <(printf '%b' "${logo}") <(printf '%b' "${systeminfo}") 
- 
-paste <(printf '%b' "${logo}") <(printf '%b' "${systeminfo}") | column -s $'\t' -t # Thank you stackoverflow user glenn jackman https://unix.stackexchange.com/a/16465
+logo_color=$(printf "$c1") # generate escape character for color https://unix.stackexchange.com/a/45954 
+logo=$(cat $PWD/logos/$distro_id.txt | awk 'BEGIN{ found=0} {if (found) print } /logo\:/{found=1} ')
+#before merging check input file lines and compare to system info
+extra_lines_for_logo=$((6- $(wc -l <(printf "%b" "$logo") | awk '{ print $1 }'))) #19 is the number of lines of systeminfo
+
+for (( i = 0; i < $extra_lines_for_logo; i++ )); do
+	logo="${logo}$(printf "\n%b" " ")"
+done
+
+#before printing we should align all lines to the longest length 
+max_length=$(($(awk '{print length}'  <(sed -r 's/\\e\[[0-9][0-9]m//g' <(printf %s "$logo")) |sort -nr|head -1)))  
+max_length_with_color_codes=$(($(awk '{print length}'   <(printf %s "$logo") |sort -nr|head -1)))  
+
+awk '{print length}'  <(sed -r 's/\\e\[[0-9]{1,2}m//g' <(printf %s "$logo")) > out.txt
+sed -r 's/\\e\[[0-9][0-9]m//g' <(printf %s "$logo") > out.txt
+
+lengths_with_color_code=($(awk '{print length}'   <(printf %s "$logo") ))
+lengths_without_color_code=( $(awk '{print length}'  <(sed -r 's/\\e\[[0-9]{1,2}m//g' <(printf %s "$logo"))) )
+
+b=$( printf "%s," "${lengths_without_color_code[@]}" )
+
+logo_with_correct_width=$(awk -v max_length=$max_length -v c0=$c0 -v b="$b" 'BEGIN {split(b,b_awk,",") }{printf("%s%"max_length-b_awk[NR]"s"c0"\n",substr($0,1,length($0)),"");}' <(printf "%b" "$logo"))
+# print in two columns side by side
+pr -Tmi1 -J -o1 -S"  "  <(echo "$logo_with_correct_width") <(printf %b "$systeminfo")
