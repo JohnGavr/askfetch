@@ -100,9 +100,6 @@ done
 max_length=$(($(awk '{print length}'  <(sed -r 's/\\e\[[0-9][0-9]m//g' <(printf %s "$logo")) |sort -nr|head -1)))  
 max_length_with_color_codes=$(($(awk '{print length}'   <(printf %s "$logo") |sort -nr|head -1)))  
 
-awk '{print length}'  <(sed -r 's/\\e\[[0-9]{1,2}m//g' <(printf %s "$logo")) > out.txt
-sed -r 's/\\e\[[0-9][0-9]m//g' <(printf %s "$logo") > out.txt
-
 lengths_with_color_code=($(awk '{print length}'   <(printf %s "$logo") ))
 lengths_without_color_code=( $(awk '{print length}'  <(sed -r 's/\\e\[[0-9]{1,2}m//g' <(printf %s "$logo"))) )
 
