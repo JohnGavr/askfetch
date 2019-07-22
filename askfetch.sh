@@ -6,11 +6,13 @@ export TEXTDOMAINDIR=$PWD/locale
 # Flag and Argument parsing
 # check flags
 
-while getopts l: option
+distro_id=$( cat /etc/os-release | grep "ID=" | cut -d '=' -f2 )
+
+while getopts ":l:d:" option
 do
 	case "${option}" in
 		l ) 
-		
+			
 			if [[ ${OPTARG} == "el" ]]; then
 				export LANGUAGE=el
 			elif [[ ${OPTARG} == "en" ]]; then
@@ -19,7 +21,11 @@ do
 				printf $(gettext "Error: Unrecognized locale") ; printf "\n"
 			fi
 			;; #get locale option
+		d )
+			distro_id=${OPTARG}
+			;;
 	esac
+
 done
 
 #####UserInfo
@@ -28,7 +34,7 @@ user_hostname=$( uname -n )
 
 #####Distro
 distro=$( hostnamectl | grep Operating\ System | cut -d ':' -f2 | sed -e 's/^[ \t]*//' )
-distro_id=$( cat /etc/os-release | grep "ID=" | cut -d '=' -f2 )
+
 
 # if thgere isn't any available stick to the default tux
 if [ ! -e "$PWD"/logos/"$distro_id".txt ]; then

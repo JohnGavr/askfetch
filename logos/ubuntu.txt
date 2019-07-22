@@ -1,0 +1,20 @@
+label_color: \e[31m
+logo:
+\e[31m                          ./+o+-      
+\e[37m                  yyyyy- \e[31m-yyyyyy+
+\e[37m               \e[37m://+//////\e[31m-yyyyyyo        
+\e[33m           .++ \e[37m.:/++++++/-\e[31m.+sss/\`        
+\e[33m         .:++o:  \e[37m/++++++++/:--:/-     
+\e[33m        o:+o+:++.\e[37m\`..\`\`\`.-/oo+++++/ 
+\e[33m       .:+o:+o/.\e[37m          \`+sssoo+/   
+\e[37m  .++/+:\e[33m+oo+o:\`\e[37m             /sssooo.  
+\e[37m /+++//+:\e[33m\`oo+o\e[37m               /::--:.  
+\e[37m \+/+o+++\e[33m\`o++o\e[31m               ++////.  
+\e[37m  .++.o+\e[33m++oo+:\`\e[31m             /dddhhh.  
+\e[33m       .+.o+oo:.\e[31m          \`oddhhhh+   
+\e[33m        \+.++o+o\`\e[31m\`-\`\`\`\`.:ohdhhhhh+    
+\e[33m         \`:o+++ \e[31m\`ohhhhhhhhyo++os:     
+\e[33m           .o:\e[31m\`.syhhhhhhh/\e[33m.oo++o\`     
+\e[31m               /osyyyyyyo\e[33m++ooo+++/    
+\e[31m                   \`\`\`\`\` \e[33m+oo+++o\:    
+\e[33m                          \`oo++.      
