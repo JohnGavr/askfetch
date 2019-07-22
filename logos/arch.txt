@@ -1,0 +1,21 @@
+label_color: \e[1;36m
+logo:
+\e[1;36m                   -`    
+\e[1;36m                  .o+`   
+\e[1;36m                 `ooo/    
+\e[1;36m                `+oooo:     
+\e[1;36m               `+oooooo:              
+\e[1;36m               -+oooooo+:      
+\e[1;36m             `/:-:++oooo+:            
+\e[1;36m            `/++++/+++++++:    
+\e[1;36m           `/++++++++++++++:      
+\e[1;36m          `/+++o\e[36moooooooo\e[1;36moooo/`
+\e[36m         \e[1;36m./\e[36mooosssso++osssssso\e[1;36m+`
+\e[36m        .oossssso-````/ossssss+` 
+\e[36m       -osssssso.      :ssssssso.     
+\e[36m      :osssssss/        osssso+++.    
+\e[36m     /ossssssss/        +ssssooo/-    
+\e[36m   `/ossssso+/:-        -:/+osssso+-  
+\e[36m  `+sso+:-`                 `.-/+oso: 
+\e[36m `++:.                           `-/+/
+\e[36m .`                                 `/
