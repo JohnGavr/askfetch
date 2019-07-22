@@ -1,0 +1,19 @@
+label_color: \e[32m
+logo:
+\e[32m                                      
+\e[32m MMMMMMMMMMMMMMMMMMMMMMMMMmds+.       
+\e[32m MMm----::-://////////////oymNMd+`    
+\e[32m MMd      \e[37m/++                \e[32m-sNMd:   
+\e[32m MMNso/`  \e[37mdMM    `.::-. .-::.` \e[32m.hMN:  
+\e[32m ddddMMh  \e[37mdMM   :hNMNMNhNMNMNh: \e[32m`NMm  
+\e[32m     NMm  \e[37mdMM  .NMN/-+MMM+-/NMN` \e[32mdMM  
+\e[32m     NMm  \e[37mdMM  -MMm  `MMM   dMM. \e[32mdMM  
+\e[32m     NMm  \e[37mdMM  -MMm  `MMM   dMM. \e[32mdMM  
+\e[32m     NMm  \e[37mdMM  .mmd  `mmm   yMM. \e[32mdMM  
+\e[32m     NMm  \e[37mdMM`  ..`   ...   ydm. \e[32mdMM  
+\e[32m     hMM- \e[37m+MMd/-------...-:sdds  \e[32mdMM  
+\e[32m     -NMm- \e[37m:hNMNNNmdddddddddy/`  \e[32mdMM  
+\e[32m      -dMNs-\e[37m``-::::-------.``    \e[32mdMM  
+\e[32m       `/dMNmy+/:-------------:/yMMM  
+\e[32m          ./ydNMMMMMMMMMMMMMMMMMMMMM  
+\e[32m              .MMMMMMMMMMMMMMMMMMM    

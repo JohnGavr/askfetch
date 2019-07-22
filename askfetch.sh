@@ -111,6 +111,6 @@ lengths_without_color_code=( $(awk '{print length}'  <(sed -r 's/\\e\[[0-9]{1,2}
 
 b=$( printf "%s," "${lengths_without_color_code[@]}" )
 
-logo_with_correct_width=$(awk -v max_length=$max_length -v c0=$c0 -v b="$b" 'BEGIN {split(b,b_awk,",") }{printf("%s%"max_length-b_awk[NR]"s"c0"\n",substr($0,1,length($0)),"");}' <(printf "%b" "$logo"))
+logo_with_correct_width=$(awk -v max_length=$max_length -v c0=$c0 -v b="$b" 'BEGIN {split(b,b_awk,",") }{printf("%s%"max_length-b_awk[NR]"s"c0"\n",substr($0,1,length($0)),"");}' <(printf "%s" "$logo"))
 # print in two columns side by side
-pr -Tmi1 -J -o1 -S"  "  <(echo "$logo_with_correct_width") <(printf %b "$systeminfo")
+pr -Tmi1 -J -o1 -S"  "  <(echo -e "$logo_with_correct_width") <(printf %b "$systeminfo")

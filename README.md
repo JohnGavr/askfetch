@@ -10,7 +10,7 @@
 
 ## Επιλογές
 
-### Λογότυπο ορισμένης διανομής -d <distro_id>
+### Λογότυπο ορισμένης διανομής `-d <distro_id>`
 Για παράδειγμα ./askfetch.sh -d ubuntu υποχρεώνει την εμφάνιση του λογοτύπου ubuntu.txt
 ### Γλώσσα διεπαφής `-l <κωδικός_γλώσσας>` 
 Παράδειγμα:
@@ -25,7 +25,7 @@
 ## Logos διανομών 
 Τα λογότυπα των διανομών που εμφανίζονται στο bash script αυτό τοποθετούνται στον φάκελο `./logos` και διαθέτουν συγκεκριμένη μορφή. Είναι ASCII `.txt` αρχεία όπως το ακόλουθο (για την διανομή Manjaro):
 
-###manjaro.txt
+### manjaro.txt
 ```
 label_color: \033[0m\033[1;32m
 logo:
@@ -58,4 +58,4 @@ echo $(cat /etc/os-release | grep "ID=" | cut -d '=' -f2).txt
 # Συμβατές διανομές
 Το askfetch είναι συμβατό με τη παρακάτω λίστα διανομών (η λίστα αυτή ανανεώνεται συνεχώς και θα βοηθούσε πολύ αν προσθέτατε και τη δική σας διανομή):
 
-* Systemd διανομές οι οποίες διαθέτουν το αρχέιο /etc/os-release (info για το systemd [εδώ](http://0pointer.de/blog/projects/os-release.html))
+* Systemd διανομές οι οποίες διαθέτουν το αρχέιο /etc/os-release (info για το  /etc/os-release [εδώ](http://0pointer.de/blog/projects/os-release.html))
