@@ -1,3 +1,9 @@
+<!-- Badges -->
+[![License][license-shield]][license-url]
+[![Repo size][repo-size-shield]][repo-size-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![Commits activity][commits-activity-shield]][commits-activity-url]
+
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -262,3 +268,15 @@ echo $(cat /etc/os-release | grep "ID=" | cut -d '=' -f2).txt
 * [Linux User GR](https://linux-user.gr/) για τις συμβουλές σχετικά με την υλοποίηση και τις λειτουργίες του askfetch. 
 * screenfetch
 * neofetch
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[commits-activity-shield]: https://img.shields.io/github/commit-activity/m/JohnGavr/askfetch.svg
+[commits-activity-url]: https://github.com/JohnGavr/askfetch/graphs/commit-activity/
+
+[contributors-shield]: https://img.shields.io/github/contributors/JohnGavr/askfetch.svg
+[contributors-url]: https://github.com/JohnGavr/askfetch/graphs/contributors
+[license-shield]: https://img.shields.io/github/license/JohnGavr/askfetch.svg
+[license-url]: https://choosealicense.com/licenses/gpl-3.0/
+[repo-size-shield]: https://img.shields.io/github/repo-size/JohnGavr/askfetch.svg
+[repo-size-url]: https://github.com/JohnGavr/askfetch/
