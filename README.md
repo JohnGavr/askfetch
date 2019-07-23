@@ -24,7 +24,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [English]
+* [English](askfetch---system-information)
   * [About the Project](#askfetch---system-information)
     * [Built With](#built-with)
   * [Getting Started](#getting-started)
@@ -51,7 +51,7 @@
   * [Επικοινωνία](#επικοινωνία)
   * [Ευχαριστίες](#ευχαριστίες)
 
-# askfetch - Πληροφορίες Συστήματος
+# askfetch - System information
 
 ## About the project
 
