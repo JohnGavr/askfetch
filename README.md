@@ -73,7 +73,7 @@ This script is developed in bash 5.0.7(1).
 ### Prerequisites
 In order to use `askfetch`, the following dependencies are required:
 * gettext
-* ...άλλα
+* ... [TO-DO: list all non standard dependencies]
 ### Installation
 Installation includes getting askfetch source code from this repository, until this script is in stable state and packaged for different distributions. Specifically:
 
