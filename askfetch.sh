@@ -283,13 +283,26 @@ echo -n "${DE}"
 
 ### DE Detection - End
 
+# Print usage
+usage() {
+  echo -n "askfetch.sh [OPTION]...
+
+Askfetch.sh system information tool.
+
+ Options:
+  -l,	Script locale (e.g. el,en). Default is en.
+  -d,	Distribution logo. Default is current installed distribution.
+  -h,	Display this help and exit
+"
+}
+
 
 # Flag and Argument parsing
 # check flags
 
 distro_id=$(grep "ID=" < /etc/os-release | cut -d '=' -f2 )
 
-while getopts ":l:d:" option
+while getopts ":l:d:h" option
 do
 	case "${option}" in
 		l ) 
@@ -304,6 +317,10 @@ do
 			;; #get locale option
 		d )
 			distro_id=${OPTARG}
+			;;
+		h )
+			usage
+			exit
 			;;
 	esac
 
