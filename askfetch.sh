@@ -380,6 +380,11 @@ ram_info=$(eval_gettext "RAM: \$ram_info_value")
 de_string=$(detectde)
 de=$(eval_gettext "DE: \$de_string")
 
+#Installed for
+installed_for_string=$(source installed_for/installed_for.sh)
+installed_for=$(eval_gettext "Installed for: \$installed_for_string")
+
+
 ## Add distribution logo
 
 ### Define tabs for better printing
@@ -391,7 +396,7 @@ c0=$'\033[0m' # Reset Text
 logo_file_color=$(grep "label_color: " < "$PWD"/logos/$distro_id.txt| cut -d ':' -f2 | tr -d '\n' | tr -d '\r' | sed -e 's/^[[:space:]]*//') #remove trailing and leading chars
 
 c1=$logo_file_color
-systeminfo="\n${c1}${user_name}@${user_hostname}$c0\n$operating_system\n$architecture\n$kernel_ver\n$cpu_model\n$ram_info\n$de"
+systeminfo="\n${c1}${user_name}@${user_hostname}$c0\n$operating_system\n$architecture\n$kernel_ver\n$cpu_model\n$ram_info\n$de\n$installed_for"
 
 logo_color=$(printf "%s" "$c1") # generate escape character for color https://unix.stackexchange.com/a/45954 
 logo=$(awk 'BEGIN{ found=0} {if (found) print } /logo\:/{found=1} ' < "$PWD"/logos/$distro_id.txt)
