@@ -300,7 +300,7 @@ Askfetch.sh system information tool.
 # Flag and Argument parsing
 # check flags
 
-distro_id=$(grep "ID=" < /etc/os-release | cut -d '=' -f2 )
+distro_id=$(grep "^ID=" < /etc/os-release | cut -d '=' -f2 )
 
 while getopts ":l:d:h" option
 do
@@ -341,7 +341,7 @@ fi
 
 arch=$( hostnamectl | grep Architecture: | cut -d ':' -f2 | sed -e 's/^[ \t]*//' )
 kernel=$( hostnamectl | grep Kernel | cut -d ':' -f2 | sed -e 's/^[ \t]*//' )
-cpu=$( grep model\ name < /proc/cpuinfo | uniq | cut -d ":" -f2 | sed -e 's/^[ \t]*//' )
+cpu=$( grep model\ name < /proc/cpuinfo | uniq | cut -d ":" -f2 | sed -e 's/^[ \t]*//' -e 's/\ \ */\ /g' )
 
 #####Memory in use (MemTotal-MemFree) - (Buffers+CachedMemory)
 
