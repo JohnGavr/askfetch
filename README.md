@@ -150,7 +150,7 @@ echo $(cat /etc/os-release | grep "ID=" | cut -d '=' -f2).txt
 Head to open [issues](https://github.com/JohnGavr/askfetch/issues) for a list of proposed features (and known issues).
 
 ## Contributing
-Consult the [contribution guide](https://github.com/JohnGavr/askfetch/CONTRIBUTION.md) for contribution directions regarding askfetch.
+Consult the [contribution guide](https://github.com/JohnGavr/askfetch/CONTRIBUTING.md) for contribution directions regarding askfetch.
 
 ## License
 Distributed under the [ΑΔΕΙΑ ΧΡΉΣΗς ΕΔΏ]. See LICENSE for more information.
@@ -256,7 +256,7 @@ echo $(cat /etc/os-release | grep "ID=" | cut -d '=' -f2).txt
 Κατευθυνθείτε στα ανοικτά [issues](https://github.com/JohnGavr/askfetch/issues) για μία λίστα απο προτεινόμενες λειτουργίες προς υλοποίηση.
 
 ## Πώς να συμβάλλετε
-Συμβουλευτείτε τον [αντίστοιχο οδηγό](https://github.com/JohnGavr/askfetch/CONTRIBUTION.md) για οδηγίες σχετικά με την υποβολή κώδικα.
+Συμβουλευτείτε τον [αντίστοιχο οδηγό](https://github.com/JohnGavr/askfetch/CONTRIBUTING.md) για οδηγίες σχετικά με την υποβολή κώδικα.
 
 ## Άδεια χρήσης
 Η άδεια χρήσης του askfetch είναι [αδεια χρήσης εδώ]
