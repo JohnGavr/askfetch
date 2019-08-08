@@ -1,0 +1,3 @@
+[submodule "installed_for"]
+	path = installed_for
+	url = https://github.com/arvchristos/installed_for.git
